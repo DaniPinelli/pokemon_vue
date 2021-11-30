@@ -1,0 +1,15 @@
+<template>
+  <h1>Who's this Pokemon?</h1>
+  <!--TODO: Picture -->
+  <!--TODO: Options -->
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
