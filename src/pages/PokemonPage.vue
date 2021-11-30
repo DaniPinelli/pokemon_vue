@@ -1,28 +1,23 @@
 <template>
   <h1>Who's this Pokemon?</h1>
   <!--TODO: Picture -->
-  <PokemonPicture/>
-  
+  <PokemonPicture :pokemonId="4" :showPokemon="true" />
+
   <!--TODO: Options -->
-  <PokemonOptions/>
+  <PokemonOptions />
 </template>
 
 <script>
-
-import PokemonPicture from '@/components/PokemonPicture'
-import PokemonOptions from '@/components/PokemonOptions'
+import PokemonPicture from "@/components/PokemonPicture";
+import PokemonOptions from "@/components/PokemonOptions";
 
 export default {
-
-    components: {
-      PokemonPicture,
-      PokemonOptions
-   
-  }
-    
-}
+  components: {
+    PokemonPicture,
+    PokemonOptions,
+  },
+};
 </script>
 
 <style>
-
 </style>
