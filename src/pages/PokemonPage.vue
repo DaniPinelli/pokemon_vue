@@ -4,10 +4,15 @@
   <h3 v-if="!pokemon">Waiting...</h3>
   <div v-else>
     <!--TODO: Picture -->
-    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="false" />
+    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
 
     <!--TODO: Options -->
     <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer" />
+    <template v-if="showAnswer">
+      <h2>{{ messagge }}</h2>
+
+      <button @click="newGame">Try again</button>
+    </template>
   </div>
 </template>
 
@@ -29,6 +34,8 @@ export default {
       pokemonArr: [],
       pokemon: null,
       showPokemon: false,
+      showAnswer: false,
+      messagge: "",
     };
   },
   methods: {
@@ -38,10 +45,23 @@ export default {
 
       this.pokemon = this.pokemonArr[rndInt];
     },
-    checkAnswer(answer) {
+    checkAnswer(selectedId) {
       //  if (answer === this.pokemon.name) {
-      //  this.showPokemon = true;
-      console.log("correct");
+      this.showPokemon = true;
+      this.showAnswer = true;
+
+      if (selectedId === this.pokemon.id) {
+        this.messagge = "Correct!";
+      } else {
+        this.messagge = "Wrong!";
+      }
+    },
+    newGame() {
+      this.showPokemon = false;
+      this.showAnswer = false;
+      this.pokemonArr = [];
+      this.pokemon = null;
+      this.mixPokemonArray();
     },
   },
   mounted() {
