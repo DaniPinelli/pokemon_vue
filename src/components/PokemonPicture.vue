@@ -1,14 +1,11 @@
 <template>
   <div class="pokemon-container">
     <img :src="imgSrc" alt="pokemon" class="hidden-pokemon" />
-
     <img v-if="showPokemon" :src="imgSrc" alt="pokemon" class="fade-in" />
   </div>
 </template>
 
 <script>
-//Number, required
-
 export default {
   props: {
     pokemonId: {
@@ -28,6 +25,8 @@ export default {
   },
 };
 </script>
+
+
 
 <style scoped>
 .pokemon-container {

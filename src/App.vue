@@ -1,19 +1,16 @@
 <template>
-
-  <PokemonPage/>
-  
+  <PokemonPage />
 </template>
 
 <script>
-
-import PokemonPage from '@/pages/PokemonPage'
+import PokemonPage from "@/pages/PokemonPage";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-      PokemonPage
-    }
-}
+    PokemonPage,
+  },
+};
 </script>
 
 <style>
@@ -22,7 +19,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2a75bb;
+  color: #2c3e50;
   margin-top: 60px;
 }
 </style>

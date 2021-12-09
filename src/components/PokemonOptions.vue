@@ -1,10 +1,18 @@
 <template>
+  <h3>Pokemon Options</h3>
   <div class="options-container">
     <ul>
-      <li v-for="pokemon in pokemons" :key="pokemon.id">{{ pokemon.name }}</li>
+      <li
+        v-for="pokemon in pokemons"
+        :key="pokemon.id"
+        @click="$emit('selection')"
+      >
+        {{ pokemon.name }}
+      </li>
     </ul>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -16,6 +24,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 ul {
