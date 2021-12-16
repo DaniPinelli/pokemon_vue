@@ -7,7 +7,9 @@
         :key="pokemon.id"
         @click="$emit('selection', pokemon.id)"
       >
-        {{ pokemon.name }}
+        <strong>{{
+          pokemon.name.replace(/^\w/, (c) => c.toUpperCase())
+        }}</strong>
       </li>
     </ul>
   </div>
@@ -19,7 +21,6 @@ export default {
   props: {
     pokemons: {
       type: Array,
-      required: true,
     },
   },
 };

@@ -7,12 +7,16 @@
     <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
 
     <!--TODO: Options -->
-    <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer" />
-    <template v-if="showAnswer">
-      <h2>{{ messagge }}</h2>
+    <div v-show="showOptions">
+      <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer" />
+    </div>
 
-      <button @click="newGame">Try again</button>
-    </template>
+    <template v-if="showAnswer"> </template>
+    <div v-show="showMssgg">
+      <h2>{{ messagge }}</h2>
+    </div>
+
+    <button class="try" @click="newGame"><strong>RETRY</strong></button>
   </div>
 </template>
 
@@ -36,6 +40,8 @@ export default {
       showPokemon: false,
       showAnswer: false,
       messagge: "",
+      showOptions: true,
+      showMssgg: false,
     };
   },
   methods: {
@@ -47,6 +53,7 @@ export default {
     },
     checkAnswer(selectedId) {
       //  if (answer === this.pokemon.name) {
+
       this.showPokemon = true;
       this.showAnswer = true;
 
@@ -55,6 +62,8 @@ export default {
       } else {
         this.messagge = "Wrong!";
       }
+      this.showOptions = false;
+      this.showMssgg = true;
     },
     newGame() {
       this.showPokemon = false;
@@ -62,6 +71,8 @@ export default {
       this.pokemonArr = [];
       this.pokemon = null;
       this.mixPokemonArray();
+      this.showOptions = true;
+      this.showMssgg = false;
     },
   },
   mounted() {
@@ -69,3 +80,17 @@ export default {
   },
 };
 </script>
+<style scoped>
+.try {
+  background-color: green;
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  width: 20%;
+}
+</style>
